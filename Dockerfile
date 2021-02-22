@@ -19,6 +19,7 @@ RUN apt-get update && \
     software-properties-common \
     sudo \
     wget \
+    xxd \
     && \
     # install llvm-10
     curl https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - && \
