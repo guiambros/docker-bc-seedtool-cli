@@ -22,7 +22,7 @@ docker run seedtool-cli seedtool --help
 
 ## Usage
 
-Check [Seedtool documentation](https://github.com/BlockchainCommons/bc-seedtool-cli/blob/master/Docs/MANUAL.md) and [usage examples](https://github.com/BlockchainCommons/bc-seedtool-cli/blob/master/Docs/Usage.md) for details on how to use. 
+Check [Seedtool documentation](https://github.com/BlockchainCommons/bc-seedtool-cli/blob/master/Docs/MANUAL.md) and [usage examples](https://github.com/BlockchainCommons/bc-seedtool-cli/blob/master/Docs/Usage.md) for details on how to use. Here's a quick getting started:
 
 
 ### Convert a pre-defined seed into BIP-39 Mnemonics, using encode it using SSKR as 3 shares, 2 of which are required for recovery
@@ -55,5 +55,14 @@ EOF
 Of course you can also enter the container and run seedtool in a segregated environment:
 
 ```
-$ docker run -ti --rm seedtool-cli /bin/bash
+user@host$ docker run -ti --rm seedtool-cli /bin/bash
+
+# we're now inside the container
+
+root@container# cat << EOF | seedtool --in sskr | xxd -r -p && echo
+tuna acid epic gyro lava vial able also aqua acid huts iron plus fact flew jazz each ruin atom tiny skew keys tomb limp fern swan numb brew pose
+tuna acid epic gyro lava vial able also acid tuna soap sets poem hang vial puff iced mint hill yank apex puma fund junk open brew real meow junk
+tuna acid epic gyro lava vial able also able exam jolt girl trip roof wasp hard tomb safe main toil jazz sets numb soap iced keys join gray noon
+EOF
+# result: secret password!
 ```
